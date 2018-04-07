@@ -7,12 +7,12 @@ import com.hankcs.hanlp.HanLP;
 import com.hankcs.hanlp.seg.common.Term;
 
 public class AnalysisSentimence {
-	public static List<String> getPositionWords(List<String> content) {
-		List<String> postionwords = SentimentWords.getPositiveWords();
+	public static List<String> getPositiveWords(List<String> content) {
+		List<String> postivewords = SentimentWords.getPositiveWords();
 		List<String> words = new ArrayList<String>();
-		for (String postionword : postionwords) {
-			if (content.contains(postionword)) {
-				words.add(postionword);
+		for (String postiveword : postivewords) {
+			if (content.contains(postiveword)) {
+				words.add(postiveword);
 			}
 		}
 		return words;
@@ -43,7 +43,7 @@ public class AnalysisSentimence {
 //			}
 //			System.out.print(title);
 //			System.out.print("--N:" +getNegativeWords(words));
-//			System.out.print("--P:"+ getPositionWords(words));
+//			System.out.print("--P:"+ getPositiveWords(words));
 //			System.out.println();
 //
 //		}
