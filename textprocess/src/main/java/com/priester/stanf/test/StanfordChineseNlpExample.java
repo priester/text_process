@@ -6,6 +6,8 @@ import edu.stanford.nlp.ling.CoreAnnotations;
 import edu.stanford.nlp.ling.CoreLabel;
 import edu.stanford.nlp.pipeline.Annotation;
 import edu.stanford.nlp.pipeline.StanfordCoreNLP;
+import edu.stanford.nlp.semgraph.SemanticGraph;
+import edu.stanford.nlp.semgraph.SemanticGraphCoreAnnotations;
 import edu.stanford.nlp.trees.Tree;
 import edu.stanford.nlp.trees.TreeCoreAnnotations;
 import edu.stanford.nlp.util.CoreMap;
@@ -57,15 +59,15 @@ public class StanfordChineseNlpExample {
 			}
 
 			// this is the parse tree of the current sentence
-			Tree tree = sentence.get(TreeCoreAnnotations.TreeAnnotation.class);
+//			Tree tree = sentence.get(TreeCoreAnnotations.TreeAnnotation.class);
 //			System.out.println("语法树：");
-			System.out.println(tree.toString());
+//			System.out.println(tree.toString());
 
 			// this is the Stanford dependency graph of the current sentence
-//			SemanticGraph dependencies = sentence
-//					.get(SemanticGraphCoreAnnotations.CollapsedCCProcessedDependenciesAnnotation.class);
-//			System.out.println("依存句法：");
-//			System.out.println(dependencies.toString());
+			SemanticGraph dependencies = sentence
+					.get(SemanticGraphCoreAnnotations.CollapsedCCProcessedDependenciesAnnotation.class);
+			System.out.println("依存句法：");
+			System.out.println(dependencies.toString());
 		}
 
 		// This is the coreference link graph

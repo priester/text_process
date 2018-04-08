@@ -13,6 +13,7 @@ import com.priester.news.pojo.News;
 import com.priester.utils.DBUtil;
 
 public class JdbcProcess {
+	
 	private static final Logger logger = LoggerFactory.getLogger(JdbcProcess.class);
 
 	public static List<String> readerTitle(Connection conn) throws Exception {
@@ -62,13 +63,13 @@ public class JdbcProcess {
 
 		try {
 			String sql = "update negative_news set text_rank_keywords = ? where id =?";
-			ps = null;
+			ps = conn.prepareStatement(sql);
 			for (News news : newsList) {
-				ps = conn.prepareStatement(sql);
 				ps.setString(1, news.getKeyWords());
 				ps.setInt(2, news.getId());
-				ps.executeUpdate();
+				ps.addBatch();
 			}
+			ps.executeBatch();
 			conn.commit();
 		} catch (Exception e) {
 			e.printStackTrace();

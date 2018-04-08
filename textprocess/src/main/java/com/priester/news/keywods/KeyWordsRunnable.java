@@ -10,6 +10,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import com.hankcs.hanlp.HanLP;
+import com.hankcs.hanlp.seg.common.Term;
 import com.priester.news.dto.JdbcProcess;
 import com.priester.news.pojo.News;
 import com.priester.utils.DBUtil;
@@ -45,10 +46,12 @@ public class KeyWordsRunnable implements Runnable {
 
 			String keywordsStr = getKeyWords(news.getTitle() + "/r/n" + news.getContent());
 			news.setKeyWords(keywordsStr);
+			
+			List<Term> terms = HanLP.segment(news.getTitle() + "/r/n" + news.getContent());
 
-			String[] keywords = keywordsStr.split(" ");
-			for (String keyWord : keywords) {
-				keyWordMap.put(keyWord, keyWordMap.containsKey(keyWord) ? keyWordMap.get(keyWord) + 1 : 1);
+			for (Term term : terms) {
+				String word = term.word;
+				keyWordMap.put(word, keyWordMap.containsKey(word) ? keyWordMap.get(word) + 1 : 1);
 			}
 		}
 		JdbcProcess.saveKeyWords(conn, newsList);
@@ -61,6 +64,7 @@ public class KeyWordsRunnable implements Runnable {
 			try {
 				saveKeywords(batchBeginId, batchEndId);
 			} catch (Exception e) {
+				e.printStackTrace();
 				logger.error(e.getMessage());
 			} finally {
 				batchBeginId = batchBeginId + BATCH_SIZE;

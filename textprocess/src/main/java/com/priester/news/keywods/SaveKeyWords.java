@@ -4,13 +4,14 @@ import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.CountDownLatch;
 
+import com.priester.utils.IOUtils;
 import com.priester.utils.ThreadPoolProxy;
 
 public class SaveKeyWords {
 
 	public static void main(String[] args) throws InterruptedException {
 		int begingId = 0;
-		int endId = 100;
+		int endId = 3000;
 		int threadcount = 5;
 		CountDownLatch countDownLatch = new CountDownLatch(threadcount);
 
@@ -26,6 +27,8 @@ public class SaveKeyWords {
 		}
 		countDownLatch.await();
 		proxy.shurtdown();
-		System.out.println(keywordMap.toString());
+
+		IOUtils.write2txt(keywordMap,
+				"C:\\Users\\fany\\git\\textprocess\\src\\main\\java\\com\\priester\\news\\keywods\\keywords.csv");
 	}
 }
