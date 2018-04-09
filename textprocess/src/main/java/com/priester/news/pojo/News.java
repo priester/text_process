@@ -8,6 +8,8 @@ public class News {
 	private String url;
 	private String introduce;
 	private String keyWords;
+	private String sentiment;
+	private String confidence;
 
 	public News() {
 		super();
@@ -76,6 +78,22 @@ public class News {
 
 	public void setId(int id) {
 		this.id = id;
+	}
+
+	public String getSentiment() {
+		return sentiment;
+	}
+
+	public void setSentiment(String sentiment) {
+		this.sentiment = sentiment;
+	}
+
+	public String getConfidence() {
+		return confidence;
+	}
+
+	public void setConfidence(String confidence) {
+		this.confidence = confidence;
 	}
 
 	@Override

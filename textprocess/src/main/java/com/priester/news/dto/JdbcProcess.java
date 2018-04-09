@@ -39,7 +39,7 @@ public class JdbcProcess {
 		PreparedStatement ps = null;
 		ResultSet rs = null;
 		try {
-			String sql = "SELECT id,title,content FROM negative_news where id >= " + beginId + " AND id <" + endId;
+			String sql = "SELECT id,title,content FROM p_news where id >= " + beginId + " AND id <" + endId;
 			ps = conn.prepareStatement(sql);
 			rs = ps.executeQuery();
 			while (rs.next()) {
@@ -77,6 +77,27 @@ public class JdbcProcess {
 		} finally {
 			ps.close();
 		}
+	}
+	
+	public static boolean save(News news) throws Exception {
+		
+		try {
+		Connection conn = DBUtil.getConnection();
+		String sql = "insert into p_news (PId,title,content,source) value(?,?,?,?)";
+		PreparedStatement ps = conn.prepareStatement(sql);
+		ps.setString(1, news.getIntroduce());
+		ps.setString(2, news.getTitle());
+		ps.setString(3, news.getContent());
+		ps.setString(4, news.getSource());
+		ps.executeUpdate();
+
+		conn.close();
+		ps.close();
+
+		}catch(Exception e){
+			e.printStackTrace();
+		}
+		return true;
 	}
 
 	public static void main(String[] args) throws Exception {
