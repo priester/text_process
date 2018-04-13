@@ -23,12 +23,6 @@
 			<scope>test</scope>
 		</dependency>
 
-		<dependency>
-			<groupId>com.hankcs</groupId>
-			<artifactId>hanlp</artifactId>
-			<version>portable-1.2.8</version>
-		</dependency>
-
 		<!-- https://mvnrepository.com/artifact/mysql/mysql-connector-java -->
 		<dependency>
 			<groupId>mysql</groupId>
@@ -137,6 +131,12 @@
 
 		<!-- <dependency> <groupId>com.baidu.aip</groupId> <artifactId>java-sdk</artifactId> 
 			<version>${version}</version> </dependency> -->
+
+		<dependency>
+			<groupId>com.hankcs</groupId>
+			<artifactId>hanlp</artifactId>
+			<version>portable-1.6.2</version>
+		</dependency>
 
 	</dependencies>
 </project>

@@ -14,8 +14,8 @@ import com.priester.news.pojo.News;
 import com.priester.utils.DBUtil;
 
 public class MarkNews {
-	static int begingId = 40000;
-	static int endId = 50000;
+	static int begingId = 64000;
+	static int endId = 80000;
 	static int batchSize = 1000;
 
 	public static final String APP_ID = "10465249";
