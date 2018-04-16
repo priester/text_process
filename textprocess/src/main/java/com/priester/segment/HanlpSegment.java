@@ -93,13 +93,16 @@ public class HanlpSegment {
 	}
 
 	public static void main(String[] args) {
-		String text = "11日，上海市公安局浦东分局官方微博发布信息称，2018年4月9日，善林（上海）金融信息服务有限公司法定代表人周某某因涉嫌违法犯罪，向公安机关投案自首，已依法立案侦查。";
+//		String text = "11日，上海市公安局浦东分局官方微博发布信息称，2018年4月9日，善林（上海）金融信息服务有限公司法定代表人周某某因涉嫌违法犯罪，向公安机关投案自首，已依法立案侦查。";
 
+		String text = "小明吃了个苹果。";
+		
 		Set<String> organNames = new HashSet<String>();
-		organNames.add("上海市公安局浦东分局");
-		organNames.add("善林（上海）金融信息服务有限公司");
+		organNames.add("乐视");
+		organNames.add("南京银行");
+		organNames.add("中泰创展控股有限公司");
 
 		System.out.println(segmentOutNuture(organNames, text));
-
+		
 	}
 }
