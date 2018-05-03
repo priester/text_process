@@ -27,11 +27,7 @@ public class StanfordChineseNlpExample {
 
 	public void runChineseAnnotators() {
 
-		String text = "关于多伦科技股份有限公司的问询函。" + "关于对中信国安葡萄酒业股份有限公司发行股份购买资产暨关联交易预案信息披露的问询函。" + "关于潍坊亚星化学股份有限公司的问询函。"
-				+ "圣达生物关于公司拟购买土地使用权的公告。" + "关于对中信国安葡萄酒业股份有限公司发行股份购买资产暨关联交易预案信息披露的问询函。" + "关于重大资产重组的进展公告。"
-				+ "股东股份被质押的公告。" + "关于控股股东进行股票质押及部分解除质押的公告。" + "关于公开挂牌转让全资子公司西安天和军民融合创新技术研究有限公司部分股权的进展公告。"
-				+ "关于公司股票交易异常波动的公告。" + "关于持股5%以上股东部分股份质押的公告。" + "2017年第四次临时股东大会决议公告。" + "2017年第一次临时股东大会决议公告。"
-				+ "关于变更持续督导保荐机构和保荐代表人的公告。";
+		String text = "最近，宁波市住建委对中康建设管理股份有限公司等15家建筑业企业拖欠务工人员工资的行为进行了通报处理。";
 		Annotation document = new Annotation(text);
 		StanfordCoreNLP corenlp = new StanfordCoreNLP("StanfordCoreNLP-chinese.properties");
 		corenlp.annotate(document);

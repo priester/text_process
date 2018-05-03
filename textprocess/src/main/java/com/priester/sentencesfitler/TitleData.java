@@ -11,7 +11,7 @@ import java.util.Map;
 
 public class TitleData {
 
-	final static String default_sentence_separator = "[。？?！!；;]";
+//	final static String default_sentence_separator = "[。？?！!；;]";
 
 	public static Connection getConnection() throws Exception {
 
